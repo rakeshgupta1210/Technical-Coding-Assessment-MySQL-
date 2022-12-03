@@ -1,0 +1,28 @@
+mysql> CREATE TABLE Countries(
+    -> countryID int,
+    -> countryName varchar(50),
+    -> CHECK(countryName IN('italy','india','china')),
+    -> regionID int
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> INSERT INTO Countries(countryID,countryName,regionID)
+    -> values(1001,'italy',1),
+    -> (1002,'india',2),
+    -> (1003,'china',3);
+Query OK, 3 rows affected (0.03 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM Countries;
++-----------+-------------+----------+
+| countryID | countryName | regionID |
++-----------+-------------+----------+
+|      1001 | italy       |        1 |
+|      1002 | india       |        2 |
+|      1003 | china       |        3 |
++-----------+-------------+----------+
+3 rows in set (0.00 sec)
+
+mysql> INSERT INTO Countries(countryID,countryName,regionID)
+    -> values(1004,'america',4);
+ERROR 3819 (HY000): Check constraint 'countries_chk_1' is violated.

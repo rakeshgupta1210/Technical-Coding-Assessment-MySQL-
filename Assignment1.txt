@@ -1,0 +1,34 @@
+mysql> use sqlassignment;
+Database changed
+
+mysql> CREATE TABLE COUNTRIES(
+    -> COUNTRY_ID varchar(2),
+    -> COUNTRY_NAME varchar(40),
+    -> REGION_ID decimal(10,0)
+    -> );
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> desc COUNTRIES;
++--------------+---------------+------+-----+---------+-------+
+| Field        | Type          | Null | Key | Default | Extra |
++--------------+---------------+------+-----+---------+-------+
+| COUNTRY_ID   | varchar(2)    | YES  |     | NULL    |       |
+| COUNTRY_NAME | varchar(40)   | YES  |     | NULL    |       |
+| REGION_ID    | decimal(10,0) | YES  |     | NULL    |       |
++--------------+---------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+
+mysql> CREATE TABLE country_new AS SELECT * FROM COUNTRIES;
+Query OK, 0 rows affected (0.02 sec)
+
+
+mysql> DESC country_new;
++--------------+---------------+------+-----+---------+-------+
+| Field        | Type          | Null | Key | Default | Extra |
++--------------+---------------+------+-----+---------+-------+
+| COUNTRY_ID   | varchar(2)    | YES  |     | NULL    |       |
+| COUNTRY_NAME | varchar(40)   | YES  |     | NULL    |       |
+| REGION_ID    | decimal(10,0) | YES  |     | NULL    |       |
++--------------+---------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
